@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .frosted {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+    .nav-link {
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .nav-link:hover {
+      transform: scale(1.05);
+    }
+  </style>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+          });
+        });
+      });
+    });
+
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="frosted shadow-md fixed w-full z-10">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-xl font-bold">Shannon D'mello</div>
+      <div class="flex space-x-2">
+        <a href="#home" class="nav-link px-4 py-2 rounded text-white" style="background-color: #EF476F;">Home</a>
+        <a href="#about" class="nav-link px-4 py-2 rounded text-white" style="background-color: #FFD166;">About Me</a>
+        <a href="#portfolio" class="nav-link px-4 py-2 rounded text-white" style="background-color: #06D6A0;">Portfolio</a>
+        <a href="#contact" class="nav-link px-4 py-2 rounded text-white" style="background-color: #118AB2;">Contact Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+ <!-- Home Section -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200">
+  <div class="text-center mt-20">
+    <div class="flex flex-col items-center space-y-6">
+      <img src="DSCN0522.JPG" alt="Profile Photo" class="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover" />
+      <div>
+        <h1 class="text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
+        <p class="text-xl">Hi, I'm Shannon D'mello, and this is my digital space.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Previous Education Section -->
+  <section id="education" class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-6">Education</h2>
+      <ul class="space-y-4 list-disc list-inside">
+        <li><strong>SSC</strong> –Carmel Convent High School(92.20%)</li>
+        <li><strong>HSC</strong> –Lokmanya Junior College (82.83%)</li>
+        <li><strong>B.Tech in Computer Engineering</strong> – FR.CRCE</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-6">About Me</h2>
+      <p class="mb-4">I'm passionate about coding and problem solving.</p><p> I enjoy reading, watching movies and relaxing and I’ve worked on some projects like</p>
+      <p>1.CCP miniproject:A website to conserve Konkani language</p>
+      <p>2.IDT project:An innovative project on use of solar energy</p>
+      <p>and also have completed a few courses</p>
+      <p>I believe in continuous learning and love to express myself creatively through various mediums.</p>
+    </div>
+  </section>
+
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-10 text-center">Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <img src="DSCN4813.JPG" alt="Gallery Image 1" class="w-full h-auto transition-transform duration-300 transform hover:scale-105">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <img src="DSCN0368.JPG" alt="Gallery Image 2" class="w-full h-auto transition-transform duration-300 transform hover:scale-105">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <img src="DSCN4331.JPG" alt="Gallery Image 3" class="w-full h-auto transition-transform duration-300 transform hover:scale-105">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <img src="DSCN4806.JPG" alt="Gallery Image 2" class="w-full h-auto transition-transform duration-300 transform hover:scale-105">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-white">
+    <div class="container mx-auto max-w-lg">
+      <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
+      <form onsubmit="return validateForm()" class="space-y-4">
+        <input type="text" id="name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded" />
+        <input type="email" id="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded" />
+        <textarea id="message" placeholder="Your Message" class="w-full p-3 border border-gray-300 rounded h-32"></textarea>
+        <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">Send</button>
+      </form>
+      <p class="mt-6">Or connect with me on <a href="#" class="text-blue-500 underline">social media</a>.</p>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 bg-gray-200">
+    <p>&copy; 2025 Shannon D'mello. All rights reserved.</p>
+  </footer>
+</body>
+</html>
